@@ -1,0 +1,392 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Russo+One&display=swap');
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "Poppins", system-ui, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  color: #0e3736;
+  background: #fff;
+  line-height: 1.5;
+}
+
+img, svg, video, canvas { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+
+:root{
+  --main-color: teal;
+  --second-color: rgb(174, 113, 56);
+  --bg-soft: rgb(255, 218, 150);
+  --shadow: 0 4px 24px rgba(14, 55, 54, 0.14);
+  --radius-xl: 24px;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+}
+
+/* ---------- Utilities ---------- */
+.center { margin-inline: auto; display: block; }
+p { margin: 0; }
+
+/* =========================================================
+   HEADER / NAV
+   ========================================================= */
+.navbar,
+.navbar li { list-style: none; }
+.navbar { padding-left: 0; }
+
+header{
+  position: sticky;   
+  top: 0;
+  z-index:1000;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background-color: #fff;
+  box-shadow: var(--shadow);
+  padding: .75rem 5%;
+}
+
+.logo{ display: flex; align-items: center; }
+.logo img{ max-height: 100px; width: auto; }
+
+#menu-icon{
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 1001;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,.06);
+}
+
+.navbar{
+  display: none;                
+  flex-direction: column;
+  gap: .25rem;
+}
+
+.navbar a{
+  font-size: 1.05rem;
+  padding: 10px 12px;
+  color: var(--second-color);
+  font-weight: 600;
+  border-radius: 8px;
+}
+.navbar a:hover{ color: var(--main-color); background: rgba(0,128,128,.06); }
+
+.navbar.active{ display: flex; } 
+
+/* Desktop nav */
+@media (min-width: 768px){
+  #menu-icon{ display: none; }
+  .navbar{ display: flex !important; flex-direction: row; gap: .5rem; }
+}
+
+/* =========================================================
+   HOME / HERO
+   ========================================================= */
+.home {
+  padding: 7rem 8% 2rem;       
+  width: 100%;
+  min-height: 60vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  background-color: var(--bg-soft);
+  row-gap: 2rem;
+}
+.home-text span{
+  font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+  font-weight: 800;
+  color: var(--second-color);
+  text-transform: uppercase;
+}
+.home-text h1{
+  font-size: clamp(2rem, 5.2vw, 3.2rem);
+  color: var(--second-color);
+  font-weight: 800;
+  margin: .25rem 0;
+}
+.home-text h2{
+  font-size: clamp(1.3rem, 3.2vw, 1.9rem);
+  color: var(--second-color);
+  margin: .25rem 0 1rem;
+  font-weight: 800;
+}
+.home-text a.beers{
+  display: inline-block;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--second-color);
+  border: 2px solid var(--second-color);
+  border-radius: 40px;
+  padding: 8px 16px;
+  transition: .2s ease;
+}
+.beers:hover { color:#fff; background: var(--second-color); }
+
+
+.home-img img{
+  animation: floaty 3s linear infinite;
+}
+@keyframes floaty {
+  0%   { transform: translate(-8px, 0); }
+  50%  { transform: translate(0, -8px); }
+  100% { transform: translate(-8px, 0); }
+}
+
+@media (min-width: 768px){
+  .home{ grid-template-columns: 1.1fr .9fr; min-height: 70vh; }
+}
+
+/* =========================================================
+   PRODUCTS
+   ========================================================= */
+.products { 
+  padding: 2.5rem 8% 2rem; 
+  background: #fff;
+}
+.heading{
+  text-align: center;
+  text-transform: uppercase;
+  padding: 30px 0 90px;
+}
+.heading span, .heading h1{
+  font-size: 40px;
+  word-spacing: 3px;
+  letter-spacing: 5px;
+  font-weight: 600;
+  color: var(--main-color);
+}
+
+.heading2{
+   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;      
+  padding: 12px 28px;
+  border: 2px solid var(--second-color);
+  border-radius: 999px;        
+  background: #fff;
+  color: var(--second-color);
+  box-shadow: 0 2px 10px rgba(0,0,0,.03);
+  word-spacing: 0 !important;
+  letter-spacing: .5px !important;
+}
+.heading2 h2 {
+  margin: 0;
+  font-size: clamp(1.25rem, 2.6vw, 1.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+.products, .aboutus { text-align: center; }
+
+
+.products { padding-top: 2.25rem; }
+
+.aboutus  { padding-top: 2.25rem; }
+
+.prod-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  justify-items: center;
+  align-items: start;
+  margin: 1rem auto 0;
+  padding: 0;
+}
+
+.prod-container .box {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  transform: none;   
+}
+
+.box-img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;    
+  border-radius: 12px;
+  margin: 0;
+}
+
+.prod-container .box .box-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  margin: 0;          
+  background: #fff;
+}
+
+.overlay{
+  position: absolute; 
+  inset: 0; 
+  display: grid; 
+  place-items: center;
+  background: rgba(0,128,128,.75);
+  opacity: 0;
+  transition: opacity .2s ease;
+  cursor: pointer;
+}
+.box-img:hover .overlay{ opacity: 1; }
+.content a{ font-size: 1.15rem; font-weight: 700; color: #000; background:#fff; padding: 6px 12px; border-radius: 999px; }
+
+.stars{ margin: .6rem 0 .25rem; color: var(--second-color); }
+.prod-container3{ margin-top: .4rem; text-align: center; }
+
+/* =========================================================
+   ABOUT / MAP
+   ========================================================= */
+.aboutus { padding: 2rem 8% 1rem; background: #fff; }
+
+.google-map { position: relative; padding-bottom: 56.25%; height: 0; }
+.google-map iframe { position: absolute; inset: 0; width:100%; height:100%; border:0; }
+
+.container2{
+  border-color: var(--main-color);
+  border-style: inset;
+  border-radius: 30px;
+  border-width: 4px;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background:#fff;
+  text-align: center;
+}
+.container2 p{
+  padding: 10px 0;
+  font-weight: 600;
+  color: var(--main-color);
+}
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+.contactus{ padding: 1rem 8% 3rem; background:#fff; }
+.services{
+  /* old width: 1800px; huge left margin; removing */
+  max-width: 640px;
+  margin: 20px auto 0;
+  height: auto;
+}
+.contactus-text{
+  padding-top: 20px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.contactus-text h1{
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  letter-spacing: 3px;
+  margin: .25rem 0;
+}
+.contactus-text h2{
+  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+  letter-spacing: 3px;
+  margin: .25rem 0 .4rem;
+}
+.contactus-text h3{
+  font-size: clamp(1rem, 2.4vw, 1.3rem);
+  letter-spacing: 2px;
+  margin: .4rem 0 .1rem;
+}
+.contactus-text h4{
+  font-size: clamp(.95rem, 2vw, 1.15rem);
+  letter-spacing: 2px;
+  margin: .1rem 0 0;
+}
+
+/* =========================================================
+   SVG BANNERS (page titles)
+   ========================================================= */
+.svg-container { width:100%; overflow:hidden; background: var(--bg-soft); }
+.svg-container svg { width:100%; height:220px; display:block; }
+.svg-container text {
+  font-family: 'Russo One', sans-serif;
+  font-size: 64px;
+  text-transform: uppercase;
+  fill: var(--second-color);
+  stroke: var(--main-color);
+  stroke-width: 2;
+  animation: stroke 5s infinite alternate;
+}
+@keyframes stroke {
+  0%   { stroke-dashoffset: 25%; stroke-dasharray: 0 50%; }
+  100% { stroke-dashoffset: -25%; stroke-dasharray: 50% 0; }
+}
+
+/* =========================================================
+   LEGACY CLASSES — made safe so old pages still render
+   ========================================================= */
+
+.products { margin-top: 0; }
+.aboutus { margin-top: 0; }
+.contactus { margin-top: 0; }
+
+.prod-container .box .stars .bx { color: var(--second-color); }
+
+[class^="background-"] {
+  position: relative;        
+  width: min(95%, 640px);
+  margin: 2rem auto 0;
+  background: #f7f7f7;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+[class^="background-"] img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  padding: 24px;
+  background: transparent;
+}
+
+.Malta-text, .Agua-text, .Carbo-text, .vital-text,
+.presidente-text, .presidentelight-text,
+.bohemiaespecial-text, .bohemialight-text,
+.barceloblack-text, .barceloonyx-text, .barcelorare-text {
+  color: var(--main-color);
+  text-align: center;
+  padding: 1rem 8%;
+}
+.Malta-text h1, .Agua-text h1, .Carbo-text h1, .vital-text h1,
+.presidente-text h1, .presidentelight-text h1,
+.bohemiaespecial-text h1, .bohemialight-text h1,
+.barceloblack-text h1, .barceloonyx-text h1, .barcelorare-text h1 {
+  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+  margin: 0 0 .25rem;
+}
+.Malta-text h3, .Agua-text h3, .Carbo-text h3, .vital-text h3,
+.presidente-text h3, .presidentelight-text h3,
+.bohemiaespecial-text h3, .bohemialight-text h3,
+.barceloblack-text h3, .barceloonyx-text h3, .barcelorare-text h3 {
+  font-size: 1rem;
+  margin: .1rem 0;
+}
+
+/* =========================================================
+   BREAKPOINTS
+   ========================================================= */
+@media (min-width: 1024px){
+  .home { padding: 8rem 8% 3rem; }
+}
+
